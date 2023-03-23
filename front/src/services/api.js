@@ -34,7 +34,7 @@ export async function login(email, password) {
 
 		const userToken = response.data.token;
 
-		const user = await getUserInfos(userToken);
+		const user = await getUserRole(userToken);
 
 		console.log(user);
 
