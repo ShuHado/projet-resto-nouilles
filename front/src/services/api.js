@@ -5,6 +5,22 @@ const instance = axios.create({
 	baseURL: "https://noco-db-production-74ef.up.railway.app",
 });
 
+async function getUserRole(token) {
+	try {
+		let url = "/api/v1/auth/user/me?project_id=p_3swgq8qr700xaf";
+
+		const response = await instance.get(url, {
+			headers: {
+				"xc-auth": token,
+			},
+		});
+
+		return response.data;
+	} catch (error) {
+		return false;
+	}
+}
+
 export async function login(email, password) {
 	try {
 		let url = "/api/v1/auth/user/signin";
