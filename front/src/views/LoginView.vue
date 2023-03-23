@@ -18,7 +18,12 @@ import { login } from "@/services/api.js";
 				<v-col cols="12" md="4">
 					<v-text-field
 						v-model="password"
+						:append-icon="'mdi-eye'"
+						:type="showPassword ? 'text' : 'password'"
+						name="input-10-1"
 						label="Password"
+						@click:append="showPassword = !showPassword"
+						counter
 						required
 					></v-text-field>
 				</v-col>
@@ -32,6 +37,7 @@ import { login } from "@/services/api.js";
 export default {
 	data: () => ({
 		valid: false,
+		showPassword: false,
 		email: "",
 		password: "",
 	}),
