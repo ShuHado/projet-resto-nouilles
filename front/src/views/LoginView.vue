@@ -36,13 +36,20 @@ export default {
 		password: "",
 	}),
 	methods: {
-		signin() {
+		async signin() {
 			if (this.valid) {
-				// useStore().dispatch("auth/signin", {
-				// 	email: this.email,
-				// 	password: this.password,
-				// });
-				login(this.email, this.password);
+				await login(this.email, this.password);
+				if (
+					useStore().getRole.owner ||
+					useStore().getRole.creator ||
+					useStore().getRole.super
+				) {
+					this.$router.push("/terminal");
+				} else if (useStore().getRole.editor) {
+					this.$router.push("/kitchen");
+				} else {
+					this.$router.push("/");
+				}
 			}
 		},
 	},
