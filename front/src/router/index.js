@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useStore } from "@/stores";
 import LoginView from "@/views/LoginView.vue";
 import TerminalView from "@/views/TerminalView.vue";
 import KitchenView from "@/views/KitchenView.vue";
@@ -28,6 +29,14 @@ const router = createRouter({
 			},
 		},
 	],
+});
+
+router.beforeEach((to, from, next) => {
+	if (to.meta.requiresAuth && !useStore().isAuthenticated) {
+		next({ path: "/" });
+	} else {
+		next();
+	}
 });
 
 export default router;
