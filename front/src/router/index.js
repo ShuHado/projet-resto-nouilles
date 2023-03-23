@@ -11,9 +11,20 @@ const router = createRouter({
 			component: LoginView,
 		},
 		{
-			path: "/about",
-			name: "about",
-			component: AboutView,
+			path: "/terminal",
+			name: "terminal view",
+			component: TerminalView,
+			meta: {
+				requiresAuth: true,
+			},
+		},
+		{
+			path: "/kitchen",
+			name: "kitchen view",
+			component: KitchenView,
+			meta: {
+				requiresAuth: true,
+			},
 		},
 	],
 });
