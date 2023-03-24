@@ -18,7 +18,7 @@ import { login } from "@/services/api.js";
 				<v-col cols="12" md="4">
 					<v-text-field
 						v-model="password"
-						:append-icon="'mdi-eye'"
+						:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
 						:type="showPassword ? 'text' : 'password'"
 						name="input-10-1"
 						label="Password"
