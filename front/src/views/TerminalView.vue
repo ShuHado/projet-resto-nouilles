@@ -11,6 +11,12 @@ import ProductCard from "@/components/ProductCard.vue";
 		:product="product"
 		@sendProductInfos="updateCommande"
 	/>
+
+	<v-btn
+		color="orange-lighten-2"
+		icon="mdi-cart"
+		@click="goToCommandeDetail"
+	/>
 </template>
 
 <script>
