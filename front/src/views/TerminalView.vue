@@ -1,15 +1,15 @@
 <script setup>
 import { getAllProducts } from "@/services/products.js";
 import { useStore } from "@/stores";
+import ProductCard from "@/components/ProductCard.vue";
 </script>
 
 <template>
-	<div v-for="(product, idx) in products" :key="idx">
-		<h1>{{ product.name }}</h1>
-		<h2>{{ product.price }} €</h2>
-		<img :src="product.img" alt="" />
-		<p>{{ product.categorie.name }}</p>
-	</div>
+	<ProductCard
+		v-for="(product, idx) in products"
+		:key="idx"
+		:product="product"
+	/>
 </template>
 
 <script>
