@@ -11,12 +11,13 @@ import ProductCard from "@/components/ProductCard.vue";
 		:product="product"
 		@sendProductInfos="updateCommande"
 	/>
-
-	<v-btn
-		color="orange-lighten-2"
-		icon="mdi-cart"
-		@click="goToCommandeDetail"
-	/>
+	<v-badge :content="commande.length">
+		<v-btn
+			color="orange-lighten-2"
+			icon="mdi-cart"
+			@click="goToCommandeDetail"
+		/>
+	</v-badge>
 </template>
 
 <script>
@@ -39,6 +40,12 @@ export default {
 	methods: {
 		updateCommande(resp) {
 			this.commande.push(resp);
+		},
+		goToCommandeDetail() {
+			this.$router.push({
+				name: "CommandeDetail",
+				params: { commande: this.commande },
+			});
 		},
 	},
 };
