@@ -23,7 +23,12 @@ export default {
 	},
 	async mounted() {
 		const token = useStore().getToken;
-		this.products = await getAllProducts(token);
+		let products = await getAllProducts(token);
+		products.forEach((product) => {
+			//replace . with ,
+			product.price = product.price.replace(".", ",");
+		});
+		this.products = products;
 	},
 	methods: {
 		updateCommande(resp) {
