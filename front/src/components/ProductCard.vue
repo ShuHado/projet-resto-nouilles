@@ -22,6 +22,7 @@
 
 <script>
 export default {
+	emits: ["sendProductInfos"],
 	props: {
 		product: Object,
 	},
@@ -29,6 +30,15 @@ export default {
 		return {
 			quantity: 1,
 		};
+	},
+	methods: {
+		sendProductInfos(product_name, quantity) {
+			const productInfos = {
+				product: product_name,
+				quantity: quantity,
+			};
+			this.$emit("sendProductInfos", productInfos);
+		},
 	},
 };
 </script>
