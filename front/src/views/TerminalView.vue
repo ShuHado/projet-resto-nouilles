@@ -9,6 +9,7 @@ import ProductCard from "@/components/ProductCard.vue";
 		v-for="(product, idx) in products"
 		:key="idx"
 		:product="product"
+		@sendProductInfos="updateCommande"
 	/>
 </template>
 
@@ -17,11 +18,17 @@ export default {
 	data() {
 		return {
 			products: [],
+			commande: [],
 		};
 	},
 	async mounted() {
 		const token = useStore().getToken;
 		this.products = await getAllProducts(token);
+	},
+	methods: {
+		updateCommande(resp) {
+			this.commande.push(resp);
+		},
 	},
 };
 </script>
