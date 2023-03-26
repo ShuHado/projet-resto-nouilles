@@ -6,14 +6,14 @@ import { getOneOrder } from "@/services/orders.js";
 	<v-table>
 		<thead>
 			<tr>
-				<th></th>
-				<th class="text-left">Produit</th>
+				<th>#</th>
+				<th class="text-center">Produit</th>
 				<th class="text-center">Quantité</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr v-for="(product_object, idx) in order.details" :key="idx">
-				<td>{{ idx }}</td>
+				<td>{{ idx + 1 }}</td>
 				<td class="text-center">{{ product_object.product }}</td>
 				<td class="text-center">{{ product_object.quantity }}</td>
 			</tr>
