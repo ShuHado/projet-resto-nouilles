@@ -1,5 +1,5 @@
 <template>
-	<v-card class="mx-auto" max-width="344">
+	<v-card max-width="344">
 		<v-img :src="product.img" height="200px" cover></v-img>
 
 		<v-card-title>{{ product.name }}</v-card-title>
