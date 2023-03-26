@@ -11,7 +11,7 @@ import { createOrder } from "@/services/orders.js";
 	>
 		Retourner à la sélection des produits
 	</v-btn>
-	<ul v-if="commande > 0">
+	<ul v-if="commande.length > 0">
 		<li v-for="(product, idx) in commande" :key="idx">
 			<p>{{ product.product }}</p>
 			<p>{{ product.quantity }}</p>
