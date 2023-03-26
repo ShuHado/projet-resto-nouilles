@@ -1,3 +1,7 @@
+<script setup>
+import { getOneOrder } from "@/services/orders.js";
+</script>
+
 <template>
 	<v-table>
 		<thead>
@@ -16,3 +20,18 @@
 		</tbody>
 	</v-table>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			order: {},
+		};
+	},
+	async mounted() {
+		const order_id = this.$route.params.id;
+		let order = await getOneOrder(order_id);
+		this.order = order;
+	},
+};
+</script>
