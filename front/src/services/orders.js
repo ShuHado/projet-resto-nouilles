@@ -13,12 +13,11 @@ export async function createOrder(orderDetails) {
 			processed: false,
 		};
 
-		const response = await instance.post("/orders", order, {
+		await instance.post("/orders", order, {
 			headers: {
 				"xc-auth": useStore().token,
 			},
 		});
-		console.log(response);
 	} catch (error) {
 		return false;
 	}
