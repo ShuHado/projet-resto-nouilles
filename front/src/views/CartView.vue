@@ -31,8 +31,8 @@ import { useStore } from "@/stores";
 					Supprimer ce produit de votre commande ?
 				</v-card-title>
 				<v-card-text>
-					Êtes-vous sûr de vouloir supprimer
-					{{ commande[remove].product }} de votre commande ?
+					Êtes-vous sûr de vouloir supprimer ce produit de votre
+					commande ?
 				</v-card-text>
 				<v-card-actions>
 					<v-spacer></v-spacer>
