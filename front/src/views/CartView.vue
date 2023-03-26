@@ -1,5 +1,6 @@
 <script setup>
 import { useStore } from "@/stores";
+import { createOrder } from "@/services/orders.js";
 </script>
 
 <template>
@@ -86,6 +87,11 @@ export default {
 			this.commande = this.commande.filter(
 				(product, idx) => idx !== this.remove
 			);
+		},
+		async validateCommande() {
+			await createOrder(this.commande);
+			useStore().setCommande([]);
+			this.$router.push("/terminal");
 		},
 	},
 };
