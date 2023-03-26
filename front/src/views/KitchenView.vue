@@ -17,8 +17,8 @@ import { getAllOrders } from "@/services/orders.js";
 				<td class="text-center">
 					{{ order.processed ? "Complété" : "En cours" }}
 				</td>
-				<td class="text-center">
-					<v-btn color="orange-lighten-2" class="mx-2">Details</v-btn>
+				<td class="text-center" v-show="!order.processed">
+					<v-btn color="orange-lighten-2" class="mx-2" @click="goToOrderDetail(order.Id)">Details</v-btn>
 					<v-btn color="orange-lighten-2" class="mx-2">Valider</v-btn>
 				</td>
 			</tr>
