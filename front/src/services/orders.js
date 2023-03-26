@@ -8,3 +8,17 @@ const instance = axios.create({
 		"xc-auth": useStore().getToken,
 	},
 });
+
+export async function createOrder(orderDetails) {
+	try {
+		const order = {
+			details: JSON.stringify(orderDetails),
+			processed: false,
+		};
+
+		const response = await instance.post("/orders", order);
+		console.log(response);
+	} catch (error) {
+		return false;
+	}
+}
