@@ -38,6 +38,7 @@ export default {
 				quantity: quantity,
 			};
 			this.$emit("sendProductInfos", productInfos);
+			this.quantity = 1;
 		},
 	},
 };
