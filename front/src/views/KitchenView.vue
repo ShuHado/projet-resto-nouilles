@@ -18,7 +18,13 @@ import { getAllOrders } from "@/services/orders.js";
 					{{ order.processed ? "Complété" : "En cours" }}
 				</td>
 				<td class="text-center" v-show="!order.processed">
-					<v-btn color="orange-lighten-2" class="mx-2" @click="goToOrderDetail(order.Id)">Details</v-btn>
+					<v-btn
+						color="orange-lighten-2"
+						class="mx-2"
+						@click="goToOrderDetail(order.Id)"
+					>
+						Details
+					</v-btn>
 					<v-btn color="orange-lighten-2" class="mx-2">Valider</v-btn>
 				</td>
 			</tr>
@@ -36,6 +42,11 @@ export default {
 	async mounted() {
 		let orders = await getAllOrders();
 		this.orders = orders;
+	},
+	methods: {
+		goToOrderDetail(order_id) {
+			this.$router.push(`/kitchen/${order_id}`);
+		},
 	},
 };
 </script>
