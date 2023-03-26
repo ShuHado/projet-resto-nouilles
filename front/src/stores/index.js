@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useStore = defineStore("store", {
 	// state
-	state: () => ({ token: null, role: null }),
+	state: () => ({ token: null, role: null, commande: [] }),
 	// getters
 	getters: {
 		getToken() {
@@ -10,6 +10,9 @@ export const useStore = defineStore("store", {
 		},
 		getRole() {
 			return this.role;
+		},
+		getCommande() {
+			return this.commande;
 		},
 		isAuthenticated() {
 			return this.token ? true : false;
@@ -22,6 +25,9 @@ export const useStore = defineStore("store", {
 		},
 		setRole(role) {
 			this.role = role;
+		},
+		setCommande(commande) {
+			this.commande = commande;
 		},
 	},
 });
