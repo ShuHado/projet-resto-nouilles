@@ -6,7 +6,7 @@
 
 		<v-card-subtitle>{{ product.price }} €</v-card-subtitle>
 
-		<input type="number" v-model="quantity" />
+		<input type="number" min="1" v-model="quantity" />
 
 		<v-card-actions>
 			<v-btn
