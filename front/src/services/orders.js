@@ -62,3 +62,20 @@ export async function getOneOrder(id) {
 		return false;
 	}
 }
+
+export async function updateOrder(id) {
+	try {
+		await instance.patch(
+			`/orders/${id}`,
+			{ processed: true },
+			{
+				headers: {
+					"xc-auth": useStore().token,
+				},
+			}
+		);
+	} catch (error) {
+		console.log(error);
+		return false;
+	}
+}
