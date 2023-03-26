@@ -11,7 +11,7 @@ import { createOrder } from "@/services/orders.js";
 	>
 		Retourner à la sélection des produits
 	</v-btn>
-	<ul>
+	<ul v-if="commande > 0">
 		<li v-for="(product, idx) in commande" :key="idx">
 			<p>{{ product.product }}</p>
 			<p>{{ product.quantity }}</p>
@@ -28,6 +28,8 @@ import { createOrder } from "@/services/orders.js";
 			<v-divider :thickness="6" class="border-opacity-100"></v-divider>
 		</li>
 	</ul>
+
+	<p v-else>Votre panier est vide</p>
 
 	<v-btn color="orange-lighten-2" @click="validateCommande"
 		>Valider la commande</v-btn
