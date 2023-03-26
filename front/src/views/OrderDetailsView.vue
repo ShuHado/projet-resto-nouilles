@@ -1,5 +1,5 @@
 <script setup>
-import { getOneOrder } from "@/services/orders.js";
+import { getOneOrder, updateOrder } from "@/services/orders.js";
 </script>
 
 <template>
@@ -19,6 +19,9 @@ import { getOneOrder } from "@/services/orders.js";
 			</tr>
 		</tbody>
 	</v-table>
+	<v-btn color="orange-lighten-2" @click="returnToList">
+		Retour à la liste des commandes
+	</v-btn>
 </template>
 
 <script>
@@ -32,6 +35,11 @@ export default {
 		const order_id = this.$route.params.id;
 		let order = await getOneOrder(order_id);
 		this.order = order;
+	},
+	methods: {
+		returnToList() {
+			this.$router.push("/kitchen");
+		},
 	},
 };
 </script>
