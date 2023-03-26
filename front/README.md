@@ -19,10 +19,10 @@
   - [x] Créer une table pour les plats
   - [x] Créer une table pour les commandes
   - [x] Créer une table pour les catégories de plats
-  - [ ] Mettre les noms de plats définitifs
-  - [ ] Mettre les noms de catégories de plats définitifs
-  - [ ] Mettre les prix des plats définitifs
-  - [ ] Mettre images de plats définitives
+  - [x] Mettre les noms de plats définitifs
+  - [x] Mettre les noms de catégories de plats définitifs
+  - [x] Mettre les prix des plats définitifs
+  - [x] Mettre images de plats définitives
 
 - Environnement :
   - [ ] Mettre les URL dans un fichier `.env`
