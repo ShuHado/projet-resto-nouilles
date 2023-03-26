@@ -30,10 +30,16 @@ export async function getAllOrders() {
 				"xc-auth": useStore().token,
 			},
 		});
-		console.log(response);
 
-		return response.data.list;
+		const orders = response.data.list;
+
+		orders.forEach((order) => {
+			order.details = JSON.parse(order.details);
+		});
+
+		return orders;
 	} catch (error) {
+		console.log(error);
 		return false;
 	}
 }
