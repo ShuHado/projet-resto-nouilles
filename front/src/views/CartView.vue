@@ -4,7 +4,11 @@ import { createOrder } from "@/services/orders.js";
 </script>
 
 <template>
-	<v-btn color="orange-lighten-2" prepend-icon="mdi-arrow-left" @click="returnToSelection">
+	<v-btn
+		color="orange-lighten-2"
+		prepend-icon="mdi-arrow-left"
+		@click="returnToSelection"
+	>
 		Retourner à la sélection des produits
 	</v-btn>
 	<ul>
@@ -90,6 +94,10 @@ export default {
 			this.commande = this.commande.filter(
 				(product, idx) => idx !== this.remove
 			);
+		},
+		returnToSelection() {
+			useStore().setCommande(this.commande);
+			this.$router.push("/terminal");
 		},
 		async validateCommande() {
 			await createOrder(this.commande);
