@@ -22,3 +22,18 @@ export async function createOrder(orderDetails) {
 		return false;
 	}
 }
+
+export async function getAllOrders() {
+	try {
+		const response = await instance.get("/orders", {
+			headers: {
+				"xc-auth": useStore().token,
+			},
+		});
+		console.log(response);
+
+		return response.data.list;
+	} catch (error) {
+		return false;
+	}
+}
