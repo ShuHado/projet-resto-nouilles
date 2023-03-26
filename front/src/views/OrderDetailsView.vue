@@ -22,6 +22,9 @@ import { getOneOrder, updateOrder } from "@/services/orders.js";
 	<v-btn color="orange-lighten-2" @click="returnToList">
 		Retour à la liste des commandes
 	</v-btn>
+	<v-btn color="orange-lighten-2" @click="processedOrder">
+		Marquer comme traiter
+	</v-btn>
 </template>
 
 <script>
@@ -38,6 +41,11 @@ export default {
 	},
 	methods: {
 		returnToList() {
+			this.$router.push("/kitchen");
+		},
+		async processedOrder() {
+			const order_id = this.$route.params.id;
+			await updateOrder(order_id);
 			this.$router.push("/kitchen");
 		},
 	},
