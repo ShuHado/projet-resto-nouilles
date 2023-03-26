@@ -36,6 +36,7 @@ export default {
 			product.price = product.price.replace(".", ",");
 		});
 		this.products = products;
+		this.commande = useStore().getCommande;
 	},
 	methods: {
 		updateCommande(resp) {
