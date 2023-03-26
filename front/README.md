@@ -9,7 +9,8 @@
   - [ ] Faire l'UX et l'UI de la page "borne"
 
 - Cuisine :
-  - [ ] Faire afficher les commandes sur la page "cuisine"
+  - [x] Faire afficher les commandes sur la page "cuisine"
+  - [ ] Permettre a la cuisine de voir les détails d'une commande
   - [ ] Permettre a la cuisine de valider les commandes
   - [ ] Faire l'UX et l'UI de la page "cuisine"
 
