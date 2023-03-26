@@ -46,7 +46,7 @@ import { useStore } from "@/stores";
 					<v-btn
 						color="green-darken-1"
 						variant="text"
-						@click="dialog = false"
+						@click="removeDefinitivelyProduct"
 					>
 						Oui
 					</v-btn>
@@ -79,6 +79,12 @@ export default {
 		},
 		addProduct(idx) {
 			this.commande[idx].quantity++;
+		},
+		removeDefinitivelyProduct() {
+			this.dialog = false;
+			this.commande = this.commande.filter(
+				(product, idx) => idx !== this.remove
+			);
 		},
 	},
 };
