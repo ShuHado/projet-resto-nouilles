@@ -35,5 +35,15 @@ export default {
 	async created() {
 		this.commande = useStore().getCommande;
 	},
+	methods: {
+		removeProduct(idx) {
+			if (this.commande[idx].quantity > 1) {
+				this.commande[idx].quantity--;
+			}
+		},
+		addProduct(idx) {
+			this.commande[idx].quantity++;
+		},
+	},
 };
 </script>
