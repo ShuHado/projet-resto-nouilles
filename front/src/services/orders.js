@@ -43,3 +43,22 @@ export async function getAllOrders() {
 		return false;
 	}
 }
+
+export async function getOneOrder(id) {
+	try {
+		const response = await instance.get(`/orders/${id}`, {
+			headers: {
+				"xc-auth": useStore().token,
+			},
+		});
+
+		const order = response.data;
+
+		order.details = JSON.parse(order.details);
+
+		return order;
+	} catch (error) {
+		console.log(error);
+		return false;
+	}
+}
