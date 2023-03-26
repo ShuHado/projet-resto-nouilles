@@ -14,7 +14,7 @@
 				variant="text"
 				@click="sendProductInfos(product.name, quantity)"
 			>
-				Commander
+				Ajouter au panier
 			</v-btn>
 		</v-card-actions>
 	</v-card>
