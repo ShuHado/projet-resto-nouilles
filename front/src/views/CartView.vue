@@ -4,6 +4,9 @@ import { createOrder } from "@/services/orders.js";
 </script>
 
 <template>
+	<v-btn color="orange-lighten-2" prepend-icon="mdi-arrow-left" @click="returnToSelection">
+		Retourner à la sélection des produits
+	</v-btn>
 	<ul>
 		<li v-for="(product, idx) in commande" :key="idx">
 			<p>{{ product.product }}</p>
