@@ -17,6 +17,7 @@ import { useStore } from "@/stores";
 				icon="mdi-plus"
 				@click="addProduct(idx)"
 			/>
+			<v-divider :thickness="6" class="border-opacity-100"></v-divider>
 		</li>
 	</ul>
 
