@@ -25,7 +25,7 @@ export async function createOrder(orderDetails) {
 
 export async function getAllOrders() {
 	try {
-		const response = await instance.get("/orders", {
+		const response = await instance.get("/orders?sort=processed", {
 			headers: {
 				"xc-auth": useStore().token,
 			},
