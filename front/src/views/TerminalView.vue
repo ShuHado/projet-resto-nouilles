@@ -42,10 +42,8 @@ export default {
 			this.commande.push(resp);
 		},
 		goToCommandeDetail() {
-			this.$router.push({
-				name: "CommandeDetail",
-				params: { commande: this.commande },
-			});
+			useStore().setCommande(this.commande);
+			this.$router.push("/cart");
 		},
 	},
 };
