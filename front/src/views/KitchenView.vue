@@ -1,5 +1,5 @@
 <script setup>
-import { getAllOrders } from "@/services/orders.js";
+import { getAllOrders, updateOrder } from "@/services/orders.js";
 </script>
 
 <template>
@@ -25,7 +25,12 @@ import { getAllOrders } from "@/services/orders.js";
 					>
 						Details
 					</v-btn>
-					<v-btn color="orange-lighten-2" class="mx-2">Valider</v-btn>
+					<v-btn
+						color="orange-lighten-2"
+						class="mx-2"
+						@click="processedOrder(order.Id)"
+						>Valider</v-btn
+					>
 				</td>
 			</tr>
 		</tbody>
@@ -46,6 +51,10 @@ export default {
 	methods: {
 		goToOrderDetail(order_id) {
 			this.$router.push(`/kitchen/${order_id}`);
+		},
+		async processedOrder(id) {
+			await updateOrder(id);
+			this.orders = await getAllOrders();
 		},
 	},
 };
